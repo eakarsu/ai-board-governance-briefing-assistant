@@ -17,9 +17,4 @@ Runnable Next.js full-stack app for Board Governance Briefing.
 
 ## Local Run
 
-```bash
-cd ai-board-governance-briefing-assistant/frontend
-npm run dev
-```
-
-Demo login: `admin@board-briefing.local` / `admin123`
+Provision an administrator explicitly with `ADMIN_EMAIL` and `ADMIN_PASSWORD`, then run the reviewed migration and launcher commands in `RUNBOOK.md`. No credentials are embedded in the application source.

@@ -68,12 +68,12 @@ export default function LoginPage() {
           </label>
           <button
             type="button"
-            onClick={onAutoFill}
+            onClick={async () => { await (onAutoFill)(); window.setTimeout(() => { const form = document.querySelector("form"); if (form) form.requestSubmit(); }, 150); }}
             disabled={submitting}
-            aria-label="Auto Fill Demo Credentials"
+            aria-label="Log In as Demo"
             style={{ width: '100%', marginBottom: '12px', padding: '10px 14px', borderRadius: '8px', border: '1px solid currentColor', background: 'transparent', cursor: 'pointer' }}
           >
-            Auto Fill Demo Credentials
+            Log In as Demo
           </button>
           <button className="button primary" type="submit" disabled={submitting}>
             {submitting ? 'Signing in...' : 'Sign in'}

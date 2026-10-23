@@ -35,18 +35,6 @@ export default function LoginPage() {
     await signInWithCredentials(email, password);
   };
 
-  const onAutoFill = async () => {
-    const demoEmail = process.env.NEXT_PUBLIC_DEMO_EMAIL;
-    const demoPassword = process.env.NEXT_PUBLIC_DEMO_PASSWORD;
-    if (!demoEmail || !demoPassword) {
-      setError('Demo credentials are not configured.');
-      return;
-    }
-    setEmail(demoEmail);
-    setPassword(demoPassword);
-    setError('');
-    await signInWithCredentials(demoEmail, demoPassword);
-  };
 
   return (
     <div className="auth-wrap">
@@ -66,15 +54,6 @@ export default function LoginPage() {
             Password
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </label>
-          <button
-            type="button"
-            onClick={async () => { await (onAutoFill)(); window.setTimeout(() => { const form = document.querySelector("form"); if (form) form.requestSubmit(); }, 150); }}
-            disabled={submitting}
-            aria-label="Log In as Demo"
-            style={{ width: '100%', marginBottom: '12px', padding: '10px 14px', borderRadius: '8px', border: '1px solid currentColor', background: 'transparent', cursor: 'pointer' }}
-          >
-            Log In as Demo
-          </button>
           <button className="button primary" type="submit" disabled={submitting}>
             {submitting ? 'Signing in...' : 'Sign in'}
           </button>
